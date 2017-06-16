@@ -1,0 +1,26 @@
+{#  #}
+{% extends "base.html" %}
+
+    {% load static %}
+
+    {% block extra_head %}
+        <link href="{% static "css/accounts.css" %}" rel="stylesheet" type="text/css">
+    {% endblock %}
+
+    {% include "nav.html" %}
+
+      {# Top #}
+      {% block headline %}
+          <h1>Your Account</h1>
+      {% endblock %}
+
+      {# Middle #}
+      {% block main %}
+          <blockquote>Hello Cthulhu!</blockquote>
+      {% endblock %}
+
+      {# Bottom #}
+      {% block footer %}
+      {% endblock %}
+
+
