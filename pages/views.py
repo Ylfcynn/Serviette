@@ -3,11 +3,11 @@ from django.shortcuts import render
 # Create your views here.
 
 
-def landing_pad(request):
+def index(request):
     """
 
     :param request:
     :return:
     """
 
-    return render(request, 'landing_pad.html')
+    return render(request, 'index.html')

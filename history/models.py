@@ -1,7 +1,5 @@
 from django.db import models
 from django.contrib.auth.models import User
-from django.utils.text import slugify
-
 
 # Create your models here.
 
@@ -12,12 +10,24 @@ class RoBit(models.Model):
 
     """
 
+    ROBIT_TYPES = (
+        ('Timer', 'Timer switch'),
+        ('Sensor', 'Sensor switch'),
+    )
+
     name = models.CharField(max_length=256)
+    type = models.CharField(max_length=12)
+    description = models.CharField(max_length=2048)
     created_on = models.DateTimeField(auto_now_add=True)
+    modified_on = models.DateTimeField(auto_now_add=True)
+    is_launched = models.BooleanField(default=False)
+    launched_on = models.DateTimeField()
+    trigger_date = models.DateTimeField()
+    payload = models.CharField(max_length=20480)
 
     # Many to one. This is what necessitated the 'from django.contrib.auth.models import User' above.
     author = models.ForeignKey(User, related_name="robits")
-    email_address = models.EmailField()
+    recipient_addresses = models.CharField()
 
     def __str__(self):
         """
@@ -26,19 +36,3 @@ class RoBit(models.Model):
         """
 
         return self.name
-
-
-
-# class Llamas(): # Slugfield class
-#     """
-#     Auto sets the slug field as the name field on save.
-#     """
-#     name = models.CharField(max_length=256)
-#     slug = models.SlugField(editable=False, blank=True, null=True)
-#
-#     def save(self, *args, **kwargs):
-#             self.slug = slugify(self.name)
-#
-#          super().save(*args, **kwargs)
-
-

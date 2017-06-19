@@ -22,5 +22,6 @@ from pages.views import landing_pad
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', landing_pad, name='landing_pad')
+    url(r'^$', index, name='index')
+    url(r'^$', my-account, name='my-account')
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
