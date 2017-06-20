@@ -37,6 +37,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+     'rest_framework',
+
+    # App names take the following form: [app_name].app.[App_name]Config
+    'accounts.apps.AccountsConfig',
+    'history.apps.HistoryConfig',
+    'pages.apps.PagesConfig',
+    'workspace.apps.WorkspaceConfig',
 ]
 
 MIDDLEWARE = [
@@ -113,6 +121,14 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+REST_FRAMEWORK = {
+    # Use Django's standard `django.contrib.auth` permissions,
+    # or allow read-only access for unauthenticated users.
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
 
 
 # Static files (CSS, JavaScript, Images)

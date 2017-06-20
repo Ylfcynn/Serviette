@@ -1,0 +1,4 @@
+django==(1.11.2)
+djangorestframework==(3.6.3)
+django-filter==(1.0.4)
+Markdown==(2.6.8)
