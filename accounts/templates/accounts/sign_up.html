@@ -11,12 +11,19 @@
 
 {# Top #}
 {% block headline %}
-  <h1>Your Account</h1>
+  <h1>Sign Up!</h1>
 {% endblock %}
 
 {# Middle #}
 {% block main %}
-  <blockquote>Hello Cthulhu!</blockquote>
+    <fieldset>
+        {{ form.errors }}
+        <form action="" method="POST">
+        {%  csrf_token %}    <!-- Cross-Site Request Forgery -  Prevents man-in-the-middle attacks -->
+        {{ form.as_p }}
+        <button>Sign Up</button>
+        </form>
+    </fieldset>
 {% endblock %}
 
 {# Bottom #}

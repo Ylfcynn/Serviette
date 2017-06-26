@@ -1,31 +1,31 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.utils.text import slugify
 
 
 # Create your models here.
 
 
-class RoBit(models.Model):
+class User(AbstractUser):
     """
-    This is an Ethereum 'smart contract' articulated as a automaton called a 'RoBit'. Multiple types will be selectable.
+    Users with the Django authentication system are represented by this model.
+    These are my users. There are many like them but these are my own.
+    User name and password are required.
 
     """
 
-    name = models.CharField(max_length=256)
-    created_on = models.DateTimeField(auto_now_add=True)
+    email = models.EmailField()
 
-    # Many to one. This is what necessitated the 'from django.contrib.auth.models import User' above.
-    author = models.ForeignKey(User, related_name="robits")
-    email_address = models.EmailField()
+    REQUIRED_FIELDS = ['email']
 
-    def __str__(self):
-        """
 
-        :return:
-        """
-
-        return self.name
+    # def __str__(self):
+    #     """
+    #
+    #     :return:
+    #     """
+    #
+    #     return self.name
 
 
 

@@ -1,0 +1,24 @@
+{#  #}
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_head %}
+<link href="{% static "css/sitewide.css" %}" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% include "nav.html" %}
+
+{# Top #}
+{% block headline %}
+  <h1>My Account</h1>
+{% endblock %}
+
+{# Middle #}
+{% block main %}
+  <blockquote></blockquote>
+{% endblock %}
+
+{# Bottom #}
+{% block footer %}
+{% endblock %}

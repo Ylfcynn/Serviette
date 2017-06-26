@@ -1,0 +1,76 @@
+main {
+    text-align: center;
+}
+
+
+#title {
+    z-index: 100;
+    position: relative;
+    top: 55px;
+    left: auto;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 35px;
+    font-weight: 700;
+    color: white;
+
+    outline: 1px dashed red;
+
+}
+
+#sign_up {
+    z-index: 800;
+    position: relative;
+    text-align: left;
+    width: 25%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+
+    outline: 1px dashed red;
+}
+
+#log_in {
+    z-index: 800;
+    position: relative;
+    text-align: right;
+    width: 25%;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: white;
+
+    outline: 1px dashed red;
+  }
+
+#aframe {
+    position: relative;
+    margin-top: -105px;
+    z-index: -100;
+
+    outline: 1px dashed red;
+}
+
+
+#footer {
+    z-index: 900;
+    display: flex;
+    height: 15px;
+    width: 100%;
+    position: absolute;
+    background-color: darkgrey;
+    bottom: 0;
+    border-top: 1px solid grey;
+
+    outline: 1px dashed red;
+}
+
+#footer_text {
+    color: white;
+    margin: 0;
+    padding: 0;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 11px;
+
+    outline: 1px dashed red;
+}

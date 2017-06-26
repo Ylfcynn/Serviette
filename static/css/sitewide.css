@@ -1,0 +1,14 @@
+body {
+    background-color: #ff0600;
+    margin: auto;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}

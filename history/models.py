@@ -1,5 +1,5 @@
 from django.db import models
-from django.contrib.auth.models import User
+from accounts.models import User
 
 # Create your models here.
 
@@ -26,8 +26,8 @@ class RoBit(models.Model):
     payload = models.CharField(max_length=20480)
 
     # Many to one. This is what necessitated the 'from django.contrib.auth.models import User' above.
-    author = models.ForeignKey(User, related_name="robits")
-    recipient_addresses = models.CharField()
+    author = models.ForeignKey(User, related_name='robits')
+    recipient_addresses = models.CharField(max_length=512)
 
     def __str__(self):
         """

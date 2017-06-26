@@ -1,0 +1,23 @@
+{#  #}
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block extra_head %}
+{% endblock %}
+
+{% include "nav.html" %}
+
+{# Top #}
+{% block headline %}
+  <h1>Uh oh. We done fucked up.</h1>
+{% endblock %}
+
+{# Middle #}
+{% block main %}
+  <blockquote>This is totally our bad. Something's wrong with our server, like it's on fire or something. Seriously, it could *actually* be fire. Try back later. Hopefully we'll have dowsed it and recalibrated the oscillator overthruster by then.</blockquote>
+{% endblock %}
+
+{# Bottom #}
+{% block footer %}
+{% endblock %}

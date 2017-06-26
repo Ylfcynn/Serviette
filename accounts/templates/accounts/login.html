@@ -1,0 +1,15 @@
+<div id="dialog-form" title="Create new user">
+  <p class="validateTips">All form fields are required.</p>
+
+  <form action="/accounts/login/" method="POST">
+    <fieldset>
+
+     {{ form.as_p }}
+
+      <!-- Allow form submission with keyboard without duplicating the dialog button -->
+      <input type="submit" tabindex="-1" style="position:absolute; top:-1000px">
+
+      {# <button id="login">Login</button> #}
+    </fieldset>
+  </form>
+</div>

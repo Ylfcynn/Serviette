@@ -62,8 +62,8 @@ ROOT_URLCONF = 'Serviette.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates'),
+                 os.path.join(BASE_DIR, 'accounts', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -143,3 +143,27 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "pages", "static"),
 
 ]
+
+
+#
+AUTH_USER_MODEL = 'accounts.User'
+
+# E-mail settings below. See here --> https://docs.djangoproject.com/en/1.11/topics/email/
+LOCAL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = 'dobyfinn'
+# EMAIL_HOST_PASSWORD = os.environ['GMAIL_PASSWORD']
+EMAIL_HOST_PASSWORD = 'llama'    #TODO:
+LOCAL_USE_TLS = True
+LOCAL_USE_SSL = False
+DEFAULT_FROM_EMAIL = 'dforcemega@gmail.com'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+#TODO: Finish the below...
+
+# if DEBUG:
+#     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# else:
+#     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+ADMINS = [('D-Force MEGA', 'dforcemega@gmail.com')]
