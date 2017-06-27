@@ -16,20 +16,18 @@ Including another URLconf
 """
 
 
-from django.conf.urls import url, include
-from django.contrib import admin
 from django.conf import settings
+from django.conf.urls import url, include
 from django.conf.urls.static import static
-from accounts.api import UserViewSet
+from django.contrib import admin
 from rest_framework import routers
-from history.api import RoBitViewSet
-from pages.views import about, contact, help, index, handler404, handler500
-from accounts.views import login, my_account, sign_up
-from workspace.views import create, delete, edit, history, workspace
 
-
+from accounts.api import UserViewSet
+from pages.views import about, contact, help, handler404, handler500
 # TODO: Make this part work
 from pages.views import index
+from workspace.api import RoBitViewSet
+from workspace.views import create, delete, edit, history, workspace
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
@@ -54,6 +52,8 @@ urlpatterns = [
     url(r'^about/', about, name='about'),
     url(r'^contact/', contact, name='contact'),
     url(r'^help/', help, name='help'),
+    url(r'^sitemap/', help, name='sitemap'),
+    url(r'^terms/', help, name='terms'),
     url(r'^404/', handler404, name='handler404'),
     url(r'^500/', handler500, name='handler500'),
 

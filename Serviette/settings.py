@@ -42,7 +42,6 @@ INSTALLED_APPS = [
 
     # App names take the following form: [app_name].app.[App_name]Config
     'accounts.apps.AccountsConfig',
-    'history.apps.HistoryConfig',
     'pages.apps.PagesConfig',
     'workspace.apps.WorkspaceConfig',
 ]
@@ -144,6 +143,7 @@ STATICFILES_DIRS = [
 
 ]
 
+LOGIN_REDIRECT_URL = '/accounts/profile/'
 
 #
 AUTH_USER_MODEL = 'accounts.User'
@@ -151,7 +151,7 @@ AUTH_USER_MODEL = 'accounts.User'
 # E-mail settings below. See here --> https://docs.djangoproject.com/en/1.11/topics/email/
 LOCAL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'dobyfinn'
+EMAIL_HOST_USER = 'dforcemega'
 # EMAIL_HOST_PASSWORD = os.environ['GMAIL_PASSWORD']
 EMAIL_HOST_PASSWORD = 'llama'    #TODO:
 LOCAL_USE_TLS = True
@@ -167,3 +167,4 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 #     EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 ADMINS = [('D-Force MEGA', 'dforcemega@gmail.com')]
+

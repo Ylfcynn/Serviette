@@ -1,13 +1,15 @@
 from django.contrib.auth import authenticate
 from django.contrib.auth import login as django_login
 from django.contrib.auth import logout as django_logout
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import AuthenticationForm, PasswordChangeForm
 from django.shortcuts import render, redirect
 from django.urls import reverse
 from django.contrib import messages
 from django.core.mail import send_mail
 
 from .forms import CustomUserCreationForm
+from .forms import CustomUserUpdateForm
 
 """
 Formally known as 'template views', this issue no DB querysets
@@ -95,3 +97,17 @@ def sign_up(request):
 
     context = {'form': form}
     return render(request, 'accounts/sign_up.html', context)
+
+@login_required(login_url='accounts/login.html')
+def profile(request):
+    """
+
+    :return:
+    """
+
+    form = CustomUserUpdateForm(instance=request.user)
+    password_form = PasswordChangeForm(user=request.user)
+
+    context = {'form': form, 'password_form': password_form}
+
+    return render(request, 'accounts/profile.html', context)    # A preceding '/' makes a path absolute

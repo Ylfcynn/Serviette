@@ -6,7 +6,8 @@
 {% block headline %}
 
     <p id="title">
-        <span>Serviette - Ethereum Smart Contracts Made Easy.</span>
+        <span>They're not 'smart contracts'. They're RoBits, dammit!
+</span>
     </p>
 
 {% endblock %}
@@ -24,11 +25,11 @@
     </section>
 
     <section id="aframe">
-        <a-scene>
+        <a-scene vr-mode-ui="enabled: true>
             <a-assets>
-{#                <a-asset-item id="ethereum_gem_v1.gltf" src="/static/vr/ethereum_gem_v1.gltf"></a-asset-item>#}
-{#                <a-asset-item id="simplex_v1.gltf" src="/static/vr/simplex_v1.gltf"></a-asset-item>#}
-                <img id="sky" src="/static/vr/sky.png">
+                <a-asset-item id="ethereum_gem_v1.gltf" src="{% static "vr/ethereum_gem_v1.gltf" %}"></a-asset-item>
+                <a-asset-item id="simplex_v1.gltf" src="{% static "vr/simplex_v1.gltf" %}"> </a-asset-item>
+                <img id="sky" src="{% static "vr/sky.jpg" %}">
 
 
             </a-assets>
@@ -48,19 +49,24 @@
                       position="0 2 -2"
                       rotation="0 0 0"
                       material="color: purple">
-
             </a-entity>
+
             <a-entity geometry="primitive: tetrahedron"
                       scale=".1 .1 .1"
                       position="0 1.25 -2"
                       rotation="45 90 120"
                       material="color: indigo">
-
             </a-entity>
 
+            <a-entity light="color: white; intensity: 1; type: ambient;" visible="" position="" rotation="" scale="">
+            </a-entity>
 
+            <a-entity position="0 0 5">
+                <a-camera></a-camera>
+            </a-entity>
 
             <a-sky src="#sky"></a-sky>
+
         </a-scene>
     </section>
 

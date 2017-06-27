@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import login, my_account, sign_up
+from .views import login, profile, sign_up
 
 
 urlpatterns = [
@@ -7,7 +7,7 @@ urlpatterns = [
 
     # Accounts
     url(r'^login/', login, name='login'),
-    url(r'^my_account/', my_account, name='my_account'),
+    url(r'^profile/', profile, name='profile'),
     url(r'^sign_up/', sign_up, name='sign_up'),
 
 ]

@@ -50,9 +50,7 @@
 
       <footer>
           {# Bottom #}
-          {% block footer %}
-          {% endblock %}
-
+          {% include "footer.html" %}
       </footer>
 
     </main>
@@ -66,7 +64,7 @@
   <!-- jQuery UI CSS -->
   <link href="{% static "vendor/jquery-ui/jquery-ui.min.css" %}" type ="text/css" rel="stylesheet">
   <link href="{% static "vendor/jquery-ui/jquery-ui.structure.min.css" %}" type ="text/css" rel="stylesheet">
-l <link href="{% static "vendor/jquery-ui/jquery-ui.theme.min.css" %}" type ="text/css" rel="stylesheet">
+  <link href="{% static "vendor/jquery-ui/jquery-ui.theme.min.css" %}" type ="text/css" rel="stylesheet">
 
   <!-- jQuery UI vendor -->
   <script type="text/javascript" src="{% static "vendor/jquery-ui/jquery-ui.min.js" %}"></script>

@@ -1,10 +1,26 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
 body {
     background-color: #ff0600;
-    margin: auto;
-    padding: 0;
-    height: 100%;
+    margin: 0 0 20px;
+    padding: 25px;
+    min-height: 100%;
     width: 100%;
-    position: absolute;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+	font-family: 'Roboto', sans-serif;
+    font-size: large;
+    height: 100%;
+	color: white;
+	margin: 0;
 }
 
 main {
@@ -12,3 +28,28 @@ main {
     flex-direction: column;
     justify-content: space-between;
 }
+
+footer {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+
+    bottom: 0;
+    height: 20px;
+    width: 100%;
+    overflow:hidden;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: medium;
+	color: white;
+
+}
+
+/*.footer_button {*/
+	/*background-color: grey;*/
+	/*padding: 1px;*/
+	/*color: darkslategrey;*/
+	/*border-radius: 1px;*/
+/*}*/
+
+/* See CSSTricks */

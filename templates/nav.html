@@ -1,2 +1,30 @@
 <!-- -->
 
+<nav>
+
+{% if request.user.is_authenticated %}
+
+<li>
+    <a href="#">Create</a>
+    <ul>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+        <li><a href="#"></a></li>
+    </ul>
+</li>
+<li><a href="accounts/profile">{{ request.user }}'s Profile</a></li>
+
+{% else %}
+
+<a>Sign up</a>
+<item id="pipe"> | </item>
+<a>Login</a>
+
+{%  endif %}
+
+</nav>
+
+
+
+
+
