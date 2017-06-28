@@ -6,21 +6,32 @@ html {
 }
 
 body {
-    background-color: #ff0600;
-    margin: 0 0 20px;
+    margin: 0 0 30px;
     padding: 25px;
     min-height: 100%;
     width: 100%;
 }
 
+aframe {
+    position: relative;
+    min-height: 100%;
+    z-index: -100;
+    outline: 1px dashed white;
+}
+
 nav {
     display: flex;
     flex-direction: row;
+    justify-content: flex-end;
 	font-family: 'Roboto', sans-serif;
     font-size: large;
     height: 100%;
 	color: white;
 	margin: 0;
+}
+
+#signed_out item~item {
+    border-left: 2px solid white;
 }
 
 main {
@@ -29,21 +40,43 @@ main {
     justify-content: space-between;
 }
 
+h1 {
+    font-family: 'Roboto', sans-serif;
+	color: white;
+}
+
 footer {
     display: flex;
     flex-direction: row;
-    position: absolute;
+    justify-content: flex-end;
+    align-items: center;
 
+    position: absolute;
     bottom: 0;
-    height: 20px;
+    left: 0;
+    height: 30px;
     width: 100%;
     overflow:hidden;
+    background: rgba(0, 0, 0, 0.125);
 
-    font-family: 'Roboto', sans-serif;
     font-size: medium;
 	color: white;
 
 }
+
+footer item~item {
+    border-left: 2px solid white;
+}
+
+
+.footer_button {
+    margin-left: 6px;
+    margin-right: 6px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
 
 /*.footer_button {*/
 	/*background-color: grey;*/

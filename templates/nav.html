@@ -1,7 +1,5 @@
 <!-- -->
 
-<nav>
-
 {% if request.user.is_authenticated %}
 
 <li>
@@ -12,17 +10,17 @@
         <li><a href="#"></a></li>
     </ul>
 </li>
-<li><a href="accounts/profile">{{ request.user }}'s Profile</a></li>
+
+# Template tag URL reverse resolver
+<li><a href="{% url "accounts:profile" %}">{{ request.user }}'s Profile</a></li>
 
 {% else %}
+<section id="signed_out">
+    <item>Sign up</item>
+    <item>Login</item>
+</section>
 
-<a>Sign up</a>
-<item id="pipe"> | </item>
-<a>Login</a>
-
-{%  endif %}
-
-</nav>
+{% endif %}
 
 
 

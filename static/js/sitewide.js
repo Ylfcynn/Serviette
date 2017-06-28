@@ -2,7 +2,7 @@ jQuery(document).ready(function() {
 
 
     /* Next part of code handles hovering effect and submenu appearing */
-    jQuery('.nav li').hover(
+    jQuery('nav li').hover(
           function () {                      //appearing on hover
               jQuery('ul', this).fadeIn();
           },

@@ -8,7 +8,7 @@
       <meta name="description" content="">
       <title></title>
 
-      <link rel="icon" type="image/png" href="favicon.ico"/>
+      <link rel="icon" type="image/png" href="{% static "favicon.ico" %}">
 
       <!-- Site-wide CSS -->
       <link href="{% static "css/sitewide.css" %}" type ="text/css" rel="stylesheet">
@@ -16,6 +16,10 @@
       {% block extra_head %}
       {%  endblock %}
   </head>
+
+  <nav>
+      {% include "nav.html" %}
+  </nav>
 
   <body>
 
@@ -33,8 +37,12 @@
     <main id="container">
         {# Boilerplate Django template tags#}
       <nav>
-          {% include "nav.html" %}
+          {% include "nav.html" %}" %}
       </nav>
+
+    <section id="aframe_background">
+        {% include "aframe_background.html" %}" %}
+    </section>
 
       <header>
           {# Top #}
@@ -50,7 +58,7 @@
 
       <footer>
           {# Bottom #}
-          {% include "footer.html" %}
+          {% include "footer.html" %}"
       </footer>
 
     </main>
