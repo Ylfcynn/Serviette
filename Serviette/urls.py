@@ -27,7 +27,7 @@ from pages.views import about, contact, help, handler404, handler500
 # TODO: Make this part work
 from pages.views import index
 from workspace.api import RoBitViewSet
-from workspace.views import create, delete, edit, history, workspace
+
 
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
@@ -61,10 +61,7 @@ urlpatterns = [
     url(r'^accounts/', include('accounts.urls', namespace='accounts')),
 
     # Workspace
-    url(r'^workspace/$', workspace, name='workspace'),
-    url(r'^workspace/create/', create, name='create'),
-    url(r'^workspace/delete/', delete, name='delete'),
-    url(r'^workspace/edit/', edit, name='edit'),
-    url(r'^workspace/history/', history, name='history'),
+    url(r'^workspace/', include('workspace.urls', namespace='workspace')),
+
 
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

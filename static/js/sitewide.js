@@ -1,14 +1,9 @@
-jQuery(document).ready(function() {
+// Doby & Kieran
 
 
-    /* Next part of code handles hovering effect and submenu appearing */
-    jQuery('nav li').hover(
-          function () {                      //appearing on hover
-              jQuery('ul', this).fadeIn();
-          },
-          function () {                      //disappearing on hover
-              jQuery('ul', this).fadeOut();
-          });
-    });
+jQuery(document).ready(function () {
+    "use strict";
+
+    $("#menu").menu(menu_options);
 
 });

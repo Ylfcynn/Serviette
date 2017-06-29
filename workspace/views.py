@@ -35,6 +35,14 @@ def history(request):
     return render(request, 'history.html')
 
 
+def launch(request):
+    """
+
+    :return:
+    """
+    return render(request, 'launch.html')
+
+
 def workspace(request):
     """
 

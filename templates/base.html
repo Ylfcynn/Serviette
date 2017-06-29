@@ -13,6 +13,9 @@
       <!-- Site-wide CSS -->
       <link href="{% static "css/sitewide.css" %}" type ="text/css" rel="stylesheet">
 
+      <!-- A-Frame vendor -->
+      <script type="text/javascript" src="{% static "vendor/aframe/aframe.min.js" %}"></script>
+
       {% block extra_head %}
       {%  endblock %}
   </head>
@@ -37,11 +40,11 @@
     <main id="container">
         {# Boilerplate Django template tags#}
       <nav>
-          {% include "nav.html" %}" %}
+          {% include "nav.html" %}
       </nav>
 
     <section id="aframe_background">
-        {% include "aframe_background.html" %}" %}
+        {% include "aframe_background.html" %}
     </section>
 
       <header>
@@ -58,7 +61,7 @@
 
       <footer>
           {# Bottom #}
-          {% include "footer.html" %}"
+          {% include "footer.html" %}
       </footer>
 
     </main>
@@ -70,6 +73,8 @@
   <script type="text/javascript" src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
 
   <!-- jQuery UI CSS -->
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
   <link href="{% static "vendor/jquery-ui/jquery-ui.min.css" %}" type ="text/css" rel="stylesheet">
   <link href="{% static "vendor/jquery-ui/jquery-ui.structure.min.css" %}" type ="text/css" rel="stylesheet">
   <link href="{% static "vendor/jquery-ui/jquery-ui.theme.min.css" %}" type ="text/css" rel="stylesheet">

@@ -61,7 +61,7 @@ def my_account(request):
 
     :return:
     """
-    return render(request, 'accounts/my_account.html')
+    return render(request, 'accounts/profile.html')
 
 
 def sign_up(request):
