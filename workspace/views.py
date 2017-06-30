@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from .forms import CreateRoBitForm
 
 # Create your views here.
 
@@ -8,7 +9,12 @@ def create(request):
 
     :return:
     """
-    return render(request, 'create.html')
+
+    form = CreateRoBitForm()
+
+    context = {'form': form}
+
+    return render(request, 'create.html', context)
 
 
 def delete(request):

@@ -3,99 +3,149 @@
 
 {% load static %}
 
-  <head>
+<head>
     <meta charset="utf-8">
-      <meta name="description" content="">
-      <title></title>
+    <meta name="description" content="">
+    <title></title>
 
-      <link rel="icon" type="image/png" href="{% static "favicon.ico" %}"/>
+    <link rel="icon" type="image/png" href="{% static "favicon.ico" %}"/>
 
-        <!-- Site-wide CSS -->
-      <link href="{% static "css/sitewide.css" %}" type ="text/css" rel="stylesheet">
+    <!-- Site-wide CSS -->
+    <link href="{% static "css/sitewide.css" %}" type="text/css" rel="stylesheet">
 
-      <!-- A-Frame vendor -->
-      <script type="text/javascript" src="{% static "vendor/aframe/aframe.min.js" %}"></script>
+    <!-- A-Frame vendor -->
+    <script type="text/javascript" src="{% static "vendor/aframe/aframe.min.js" %}"></script>
 
-      {% block extra_head %}
-      {%  endblock %}
-  </head>
+    {% block extra_head %}
+    {% endblock %}
+</head>
 
-  <body>
+<body>
 
-  <nav>
-      {% include "nav.html" %}
-  </nav>
+<nav>
+    {% include "nav.html" %}
+</nav>
 
-    <a-scene vr-mode-ui="enabled: true">
-        <a-assets>
-            <a-asset-item id="ethereum_gem" src="{% static "vr/ethereum_gem_v1.gltf" %}"></a-asset-item>
-            <a-asset-item id="simplex" src="{% static "vr/simplex_v1.gltf" %}"></a-asset-item>
+<a-scene vr-mode-ui="enabled: true"
+         inspector="{% static "aframe-inspector.min.js" %}">
+    <a-assets>
+        <a-asset-item id="ethereum_gem" src="{% static "vr/ethereum_gem_v1.gltf" %}"></a-asset-item>
+        <a-asset-item id="simplex" src="{% static "vr/simplex_v1.gltf" %}"></a-asset-item>
 
-        </a-assets>
+    </a-assets>
 
-        <a-sky color="rgb(195, 0, 0)"></a-sky>
+    <a-sky color="rgb(195, 0, 0)"
+           position="0 0 0"
+           rotation="0 0 0"
+           scale="-1 1 1"
+           visible="true"
+           material="color:rgb(195, 0, 0);shader:flat"
+           geometry="primitive:sphere;radius:5000;segmentsWidth:64;segmentsHeight:20">
 
-        <a-entity position="0 0 5">
-            <a-camera></a-camera>
-        </a-entity>
+    </a-sky>
 
-        <a-entity gltf-model="#ethereum_gem"
+    <a-entity position="0 0 5" rotation="0 0 0" scale="1 1 1" visible="true">
+        <a-camera position="0 1.5 0"
+                  rotation="-25.5 0 0"
                   scale="1 1 1"
-                  position="0 1.25 -2"
-                  rotation="0 45 0"
-                  material="color: black"
-                  metalness="0.75"
-                  opacity="0.5"
-                  reflectivity="0.5">
+                  visible="true"
+                  camera="userHeight:1.6;active:false"
+                  look-controls=""
+                  wasd-controls="">
 
-            <a-animation attribute="rotation" begin="click" dur="2750" to="0 -720 0"></a-animation>
+        </a-camera>
+    </a-entity>
 
-        </a-entity>
+    <a-entity gltf-model="#ethereum_gem"
+              scale="1 1 1"
+              position="0 0.25 -2"
+              rotation="0 45 0"
+              material="color:black;opacity:0.5;wireframe:false;flatShading:false"
+              metalness="0.75"
+              opacity="0.5"
+              reflectivity="0.5"
+              visible="true">
 
-{#        <a-entity gltf-model="#simplex_v1"#}
-{#                  scale="1 1 1"#}
-{#                  position="0 2 -2"#}
-{#                  rotation="0 0 0"#}
-{#                  material="color: black">#}
-{#        </a-entity>#}
+        <a-animation attribute="rotation"
+                     begin="click"
+                     dur="2750"
+                     to="0 -720 0">
 
-        <a-entity geometry="primitive: tetrahedron"
-                  scale=".2 .2 .2"
-                  position="-10 1.25 -2"
-                  rotation="45 90 120"
-                  material="color: black">
-        </a-entity>
+        </a-animation>
 
-    </a-scene>
+    </a-entity>
+    <a-entity gltf-model="#ethereum_gem"
+              scale="1 1 1"
+              position="0 -0.25 -2"
+              rotation="180 45 0"
+              material="color:black;opacity:0.5;wireframe:false;flatShading:false"
+              metalness="0.75"
+              opacity="0.5"
+              reflectivity="0.5"
+              visible="true">
 
-    <footer>
-      {# Bottom #}
-      {% include "footer.html" %}
-    </footer>
+        <a-animation attribute="rotation"
+                     begin="click"
+                     dur="2750"
+                     to="0 -720 0">
 
-  </body>
-
-  <!-- jQuery vendor -->
-  <script type="text/javascript" src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
-
-
-  <!-- jQuery UI CSS -->
-  <link href="{% static "vendor/jquery-ui/jquery-ui.min.css" %}" type ="text/css" rel="stylesheet">
-  <link href="{% static "vendor/jquery-ui/jquery-ui.structure.min.css" %}" type ="text/css" rel="stylesheet">
-  <link href="{% static "vendor/jquery-ui/jquery-ui.theme.min.css" %}" type ="text/css" rel="stylesheet">
-
-  <!-- jQuery UI vendor -->
-  <script type="text/javascript" src="{% static "vendor/jquery-ui/jquery-ui.min.js" %}"></script>
-
-  <!-- D3 vendor -->
-  <script type="text/javascript" src="{% static "vendor/d3/d3.min.js" %}"></script>
-
-  <!-- Site-wide JS -->
-  <script src="{% static "js/sitewide.js" %}" type="text/javascript"></script>
-  <script src="{% static "accounts/js/login_modal.js" %}" type="text/javascript"></script>
+        </a-animation>
+    </a-entity>
 
 
-  {% block extra_scripts %}
-  {% endblock %}
+    <a-entity geometry="primitive:tetrahedron"
+              scale="0.2 0.2 0.2"
+              position="-10 1.25 -2"
+              rotation="45 90 120"
+              material="color:black"
+              visible="true">
+    </a-entity>
+
+    <canvas class="a-canvas a-grab-cursor"
+            data-aframe-canvas="true"
+            width="2880"
+            height="1400"
+            style="width: 1440px;
+            height: 700px;">
+    </canvas>
+
+    <a-entity camera="far:10000;fov:50;near:0.05;active:true"
+              position="0 0 0"
+              rotation="0 0 0"
+              scale="1 1 1"
+              visible="true">
+    </a-entity>
+
+</a-scene>
+
+<footer>
+    {# Bottom #}
+    {% include "footer.html" %}
+</footer>
+
+</body>
+
+<!-- jQuery vendor -->
+<script type="text/javascript" src="{% static "vendor/jquery/jquery-3.2.1.min.js" %}"></script>
+
+
+<!-- jQuery UI CSS -->
+<link href="{% static "vendor/jquery-ui/jquery-ui.min.css" %}" type="text/css" rel="stylesheet">
+<link href="{% static "vendor/jquery-ui/jquery-ui.structure.min.css" %}" type="text/css" rel="stylesheet">
+<link href="{% static "vendor/jquery-ui/jquery-ui.theme.min.css" %}" type="text/css" rel="stylesheet">
+
+<!-- jQuery UI vendor -->
+<script type="text/javascript" src="{% static "vendor/jquery-ui/jquery-ui.min.js" %}"></script>
+
+<!-- D3 vendor -->
+<script type="text/javascript" src="{% static "vendor/d3/d3.min.js" %}"></script>
+
+<!-- Site-wide JS -->
+<script src="{% static "js/sitewide.js" %}" type="text/javascript"></script>
+<script src="{% static "accounts/js/login_modal.js" %}" type="text/javascript"></script>
+
+
+{% block extra_scripts %}
+{% endblock %}
 
 </html>

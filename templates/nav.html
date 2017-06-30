@@ -1,58 +1,35 @@
+<ul id="nav_box">
+    {% if request.user.is_authenticated %}
 
 
-        <ul id="nav_box">
-
-            {% if request.user.is_authenticated %}
-
-
-                <ul id="menu">
-                    <li>
-                        <a href="{% url "workspace:create" %}">Create</a>
-                    </li>
-                    <li>
-                        <a href="{% url "workspace:edit" %}">Edit</a>
-                    </li>
-                    <li>
-                        <a href="{% url "workspace:launch" %}">Launch</a>
-                    </li>
-                    <li id="profile_link">
-                        <a href="{% url "accounts:profile" %}">My Profile</a>
-                    </li>
-{#                    <li>#}
-{#                        <div>new item</div>#}
-{#                    </li>#}
-                </ul>
-
-
-
-
-
-
-                {#                <div class="dropdown">#}
-{#                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1" data-toggle="dropdown">#}
-{#                        RoBit#}
-{#                        <span class="caret"></span>#}
-{#                    </button>#}
-
-{#                    <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="menu1">#}
-{#                        <li role="presentation"><a class="navicon" role="menuitem" tabindex="-1" href="#">Create</a></li>#}
-{#                        <li role="presentation"><a class="navicon" role="menuitem" tabindex="-1" href="#">Edit</a></li>#}
-{#                        <li role="presentation"><a class="navicon" role="menuitem" tabindex="-1" href="#">History</a></li>#}
-{#                    </ul>#}
-{#                </div>#}
-
-                {# Template tag URL reverse resolver #}
-
-
-
-            {% else %}
-
-                <item>Sign up</item>
-                <item>Login</item>
-
-            {% endif %}
-
+        <ul id="menu">
+            <li>
+                <a href="{% url "workspace:create" %}">Create</a>
+            </li>
+            <li>
+                <a href="{% url "workspace:edit" %}">Edit</a>
+            </li>
+            <li>
+                <a href="{% url "workspace:launch" %}">Launch</a>
+            </li>
+            <li id="profile_link">
+                <a href="{% url "accounts:profile" %}">My Profile</a>
+            </li>
         </ul>
+
+
+    {% else %}
+
+        <item>
+            <a href="{% url "sign_up" %}">Sign up</a> <!-- Fix this! -->
+        </item>
+        <item>
+            <a>Login</a>
+        </item>
+
+    {% endif %}
+
+</ul>
 
 
 
