@@ -26,11 +26,11 @@
     {% include "nav.html" %}
 </nav>
 
-<a-scene vr-mode-ui="enabled: true"
-         inspector="{% static "aframe-inspector.min.js" %}">
+<a-scene vr-mode-ui="enabled: true">
+
     <a-assets>
-        <a-asset-item id="ethereum_gem" src="{% static "vr/ethereum_gem_v1.gltf" %}"></a-asset-item>
-        <a-asset-item id="simplex" src="{% static "vr/simplex_v1.gltf" %}"></a-asset-item>
+        <a-asset-item id="ethereum_gem" src="{% static "vr/ethereum_gem_v2.dae" %}"></a-asset-item>
+        <a-asset-item id="simplex" src="{% static "vr/simplex_v2.gltf" %}"></a-asset-item>
 
     </a-assets>
 
@@ -44,19 +44,19 @@
 
     </a-sky>
 
-    <a-entity position="0 0 5" rotation="0 0 0" scale="1 1 1" visible="true">
-        <a-camera position="0 1.5 0"
-                  rotation="-25.5 0 0"
-                  scale="1 1 1"
-                  visible="true"
-                  camera="userHeight:1.6;active:false"
-                  look-controls=""
-                  wasd-controls="">
 
-        </a-camera>
-    </a-entity>
+    <a-camera position="0 4 10"
+              rotation="-30 0 0"
+              scale="1 1 1"
+              visible="true"
+              camera="userHeight:1.6;active:true"
+              look-controls=""
+              wasd-controls="">
 
-    <a-entity gltf-model="#ethereum_gem"
+    </a-camera>
+
+
+    <a-entity collada-model="#ethereum_gem"
               scale="1 1 1"
               position="0 0.25 -2"
               rotation="0 45 0"
@@ -74,7 +74,7 @@
         </a-animation>
 
     </a-entity>
-    <a-entity gltf-model="#ethereum_gem"
+    <a-entity collada-model="#ethereum_gem"
               scale="1 1 1"
               position="0 -0.25 -2"
               rotation="180 45 0"
@@ -87,14 +87,14 @@
         <a-animation attribute="rotation"
                      begin="click"
                      dur="2750"
-                     to="0 -720 0">
+                     to="0 720 0">
 
         </a-animation>
     </a-entity>
 
 
-    <a-entity geometry="primitive:tetrahedron"
-              scale="0.2 0.2 0.2"
+    <a-entity gltf-model="#simplex"
+              scale="0.3 0.3 0.3"
               position="-10 1.25 -2"
               rotation="45 90 120"
               material="color:black"
