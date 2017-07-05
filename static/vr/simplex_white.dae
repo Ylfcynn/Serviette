@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 2.78.0 commit date:2017-02-24, commit time:14:33, hash:e92f235</authoring_tool>
+    </contributor>
+    <created>2017-07-04T23:06:49</created>
+    <modified>2017-07-04T23:06:49</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_cameras>
+    <camera id="Camera_001-camera" name="Camera.001">
+      <optics>
+        <technique_common>
+          <perspective>
+            <xfov sid="xfov">49.13434</xfov>
+            <aspect_ratio>1.777778</aspect_ratio>
+            <znear sid="znear">0.1</znear>
+            <zfar sid="zfar">100</zfar>
+          </perspective>
+        </technique_common>
+      </optics>
+      <extra>
+        <technique profile="blender">
+          <YF_dofdist>0</YF_dofdist>
+          <shiftx>0</shiftx>
+          <shifty>0</shifty>
+        </technique>
+      </extra>
+    </camera>
+  </library_cameras>
+  <library_images/>
+  <library_effects>
+    <effect id="None_001-effect">
+      <profile_COMMON>
+        <technique sid="common">
+          <phong>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <ambient>
+              <color sid="ambient">0 0 0 1</color>
+            </ambient>
+            <diffuse>
+              <color sid="diffuse">0.8 0.8 0.8 1</color>
+            </diffuse>
+            <specular>
+              <color sid="specular">0.5 0.5 0.5 1</color>
+            </specular>
+            <shininess>
+              <float sid="shininess">50</float>
+            </shininess>
+            <index_of_refraction>
+              <float sid="index_of_refraction">1</float>
+            </index_of_refraction>
+          </phong>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_materials>
+    <material id="None_001-material" name="None_001">
+      <instance_effect url="#None_001-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="Solid-mesh" name="Solid">
+      <mesh>
+        <source id="Solid-mesh-positions">
+          <float_array id="Solid-mesh-positions-array" count="36">-1.8305e-7 0.06666696 1.141438 0.643292 0.438071 0.0909481 -0.643292 0.438071 0.09094786 0 -0.742809 -0.003332972 -0.643291 0.371405 -0.003333091 0.643292 0.371405 -0.003332853 0.05773478 -0.033333 1.141438 0.0577349 -0.776142 0.09094798 0.701026 0.3380709 0.0909481 -0.05773514 -0.03333294 1.141438 -0.05773502 -0.776142 0.09094798 -0.701027 0.338071 0.09094786</float_array>
+          <technique_common>
+            <accessor source="#Solid-mesh-positions-array" count="12" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="Solid-mesh-normals">
+          <float_array id="Solid-mesh-normals-array" count="96">0 0.9428092 0.3333331 1.63115e-7 0 -1 0.8164966 -0.4714045 0.3333336 1.82523e-7 0 1 0 -0.94281 -0.3333307 0.8165025 0.4713997 -0.3333261 -0.8164958 0.471403 -0.3333379 -0.7071068 0.4082478 0.5773506 -0.7071067 0.4082481 0.5773506 -0.7071067 0.4082481 0.5773506 -0.7071076 -0.4082484 -0.5773493 -0.7071029 -0.4082465 -0.5773562 -0.7071079 -0.4082485 -0.5773489 1.29527e-7 0.8164995 -0.5773462 1.3152e-7 0.8164997 -0.577346 1.31648e-7 0.8164997 -0.577346 0.7071079 -0.4082489 -0.5773485 0.7071089 -0.4082496 -0.5773468 0.7071079 -0.4082488 -0.5773487 0 -0.8164964 0.5773505 0 -0.8164965 0.5773505 0 -0.8164964 0.5773504 0.7071095 0.4082429 0.5773508 0.7071071 0.4082476 0.5773503 0.707107 0.408248 0.5773503 -0.8164963 -0.4714049 0.3333336 -0.7071068 0.4082477 0.5773506 -0.7071027 -0.4082465 -0.5773567 1.29399e-7 0.8164995 -0.5773462 0.7071089 -0.4082497 -0.5773468 0 -0.8164964 0.5773505 0.7071096 0.4082425 0.5773508</float_array>
+          <technique_common>
+            <accessor source="#Solid-mesh-normals-array" count="32" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="Solid-mesh-vertices">
+          <input semantic="POSITION" source="#Solid-mesh-positions"/>
+        </vertices>
+        <polylist material="None_001-material" count="20">
+          <input semantic="VERTEX" source="#Solid-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#Solid-mesh-normals" offset="1"/>
+          <vcount>3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 3 </vcount>
+          <p>0 0 1 0 2 0 3 1 4 1 5 1 6 2 7 2 8 2 0 3 9 3 6 3 10 4 3 4 7 4 1 5 8 5 5 5 2 6 4 6 11 6 2 7 9 8 0 9 10 10 4 11 3 12 4 13 1 14 5 15 3 16 8 17 7 18 10 19 6 20 9 21 8 22 0 23 6 24 9 25 11 25 10 25 2 7 11 26 9 8 10 10 11 27 4 11 4 13 2 28 1 14 3 16 5 29 8 17 10 19 7 30 6 20 8 22 1 31 0 23</p>
+        </polylist>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_controllers/>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="Camera_001" name="Camera_001" type="NODE">
+        <matrix sid="transform">0.6859207 -0.3240134 0.6515582 7.481132 0.7276763 0.3054209 -0.6141704 -6.50764 -3.28323e-8 0.8953955 0.4452714 5.343665 0 0 0 1</matrix>
+        <instance_camera url="#Camera_001-camera"/>
+      </node>
+      <node id="Solid" name="Solid" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</matrix>
+        <instance_geometry url="#Solid-mesh" name="Solid">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="None_001-material" target="#None_001-material"/>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>

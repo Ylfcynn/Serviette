@@ -1,0 +1,226 @@
+{
+    "accessors": {
+        "accessor_buffer_Cube_Cube.000_0": {
+            "bufferView": "bufferView_buffer_Cube_Cube.000_0",
+            "byteOffset": 0,
+            "byteStride": 24,
+            "componentType": 5126,
+            "count": 16,
+            "max": [
+                1.4142135381698608,
+                1.4142135381698608,
+                2.8655517780862283e-07
+            ],
+            "min": [
+                -1.4142135381698608,
+                -1.4142135381698608,
+                -2.0999999046325684
+            ],
+            "type": "VEC3"
+        },
+        "accessor_buffer_Cube_Cube.000_1": {
+            "bufferView": "bufferView_buffer_Cube_Cube.000_0",
+            "byteOffset": 12,
+            "byteStride": 24,
+            "componentType": 5126,
+            "count": 16,
+            "max": [
+                0.6384188532829285,
+                0.6384188532829285,
+                1.0
+            ],
+            "min": [
+                -0.6384187936782837,
+                -0.6384187340736389,
+                -0.4299337863922119
+            ],
+            "type": "VEC3"
+        },
+        "accessor_buffer_Cube_Cube.000_2": {
+            "bufferView": "bufferView_buffer_Cube_Cube.000_1",
+            "byteOffset": 0,
+            "byteStride": 2,
+            "componentType": 5123,
+            "count": 18,
+            "max": [
+                15
+            ],
+            "min": [
+                0
+            ],
+            "type": "SCALAR"
+        }
+    },
+    "asset": {
+        "profile": {
+            "api": "WebGL",
+            "version": "1.0.3"
+        },
+        "version": "1.0"
+    },
+    "bufferViews": {
+        "bufferView_buffer_Cube_Cube.000_0": {
+            "buffer": "buffer_combined",
+            "byteLength": 384,
+            "byteOffset": 0,
+            "target": 34962
+        },
+        "bufferView_buffer_Cube_Cube.000_1": {
+            "buffer": "buffer_combined",
+            "byteLength": 36,
+            "byteOffset": 384,
+            "target": 34963
+        }
+    },
+    "buffers": {
+        "buffer_combined": {
+            "byteLength": 420,
+            "type": "arraybuffer",
+            "uri": "buffer_combined.bin"
+        }
+    },
+    "cameras": {
+        "camera_Camera.001": {
+            "name": "Camera.001",
+            "perspective": {
+                "aspectRatio": 1.7035958639311695,
+                "yfov": 0.5033799409866333,
+                "zfar": 100.0,
+                "znear": 0.10000000149011612
+            },
+            "type": "perspective"
+        }
+    },
+    "extensions": {
+        "KHR_materials_common": {
+            "lights": {}
+        }
+    },
+    "extensionsUsed": [
+        "KHR_materials_common"
+    ],
+    "materials": {
+        "material_None": {
+            "extensions": {
+                "KHR_materials_common": {
+                    "technique": "PHONG",
+                    "values": {
+                        "ambient": [
+                            1.0,
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "diffuse": [
+                            0.6399999856948853,
+                            0.6399999856948853,
+                            0.6399999856948853,
+                            1.0
+                        ],
+                        "doubleSided": false,
+                        "emission": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "shininess": 50,
+                        "specular": [
+                            0.25,
+                            0.25,
+                            0.25,
+                            1.0
+                        ],
+                        "transparency": 1.0,
+                        "transparent": false
+                    }
+                }
+            },
+            "name": "None"
+        }
+    },
+    "meshes": {
+        "mesh_Cube_Cube.000": {
+            "name": "Cube_Cube.000",
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_buffer_Cube_Cube.000_1",
+                        "POSITION": "accessor_buffer_Cube_Cube.000_0"
+                    },
+                    "indices": "accessor_buffer_Cube_Cube.000_2",
+                    "material": "material_None",
+                    "mode": 4
+                }
+            ]
+        }
+    },
+    "nodes": {
+        "node_Camera.001": {
+            "camera": "camera_Camera.001",
+            "children": [],
+            "name": "Camera.001",
+            "rotation": [
+                0.483536034822464,
+                0.20870360732078552,
+                0.33687159419059753,
+                0.7804827094078064
+            ],
+            "scale": [
+                1.0,
+                0.9999999403953552,
+                1.0
+            ],
+            "translation": [
+                7.4811320304870605,
+                -6.5076398849487305,
+                5.34366512298584
+            ]
+        },
+        "node_Cube_Cube_003.001": {
+            "children": [],
+            "meshes": [
+                "mesh_Cube_Cube.000"
+            ],
+            "name": "Cube_Cube_003.001",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ]
+        }
+    },
+    "samplers": {
+        "sampler_default": {}
+    },
+    "scene": "scene_Scene",
+    "scenes": {
+        "scene_Scene": {
+            "extras": {
+                "active_camera": null,
+                "background_color": [
+                    0.05087608844041824,
+                    0.05087608844041824,
+                    0.05087608844041824
+                ],
+                "frames_per_second": 24
+            },
+            "name": "Scene",
+            "nodes": [
+                "node_Cube_Cube_003.001",
+                "node_Camera.001"
+            ]
+        }
+    }
+}
