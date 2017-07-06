@@ -27,7 +27,7 @@ def login(request):
         form = AuthenticationForm()
 
     elif request.method == 'POST':
-        form = AuthenticationForm(data=sign_up) #TODO: Is this correct?
+        form = AuthenticationForm(data=request.POST) #TODO: Is this correct?
 
         if form.is_valid():
             username = form.cleaned_data.get('username')
@@ -38,7 +38,7 @@ def login(request):
 
                 django_login(request, user)
                 messages.success(request, f'Logged in as {username}')
-                return redirect(reverse('my_account'))
+                return redirect('/')
 
             else:
                 messages.warning(request, 'Danger! Hacking attempt detected! Run for your life!')
@@ -47,21 +47,13 @@ def login(request):
     return render(request, 'accounts/login.html', context)
 
 
-def logout(request):
+def log_out(request):
     """
 
     :return:
     """
     django_logout(request)
     return redirect('/')
-
-
-def my_account(request):
-    """
-
-    :return:
-    """
-    return render(request, 'accounts/profile.html')
 
 
 def sign_up(request):
@@ -97,6 +89,7 @@ def sign_up(request):
 
     context = {'form': form}
     return render(request, 'accounts/sign_up.html', context)
+
 
 @login_required(login_url='accounts/login.html')
 def profile(request):

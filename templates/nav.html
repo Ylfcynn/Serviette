@@ -1,8 +1,8 @@
-<ul id="nav_box">
+<ul id="menu">
     {% if request.user.is_authenticated %}
 
 
-        <ul id="menu">
+        <ul id="menu_item">
             <li>
                 <a href="{% url "workspace:create" %}">Create</a>
             </li>
@@ -15,17 +15,22 @@
             <li id="profile_link">
                 <a href="{% url "accounts:profile" %}">My Profile</a>
             </li>
+            <li>
+                <a href="{% url "accounts:log_out" %}">Log out</a>
+            </li>
         </ul>
 
 
     {% else %}
 
-        <item>
-            <a href="{% url "sign_up" %}">Sign up</a> <!-- Fix this! -->
-        </item>
-        <item>
-            <a>Login</a>
-        </item>
+        <section id="logged_out">
+            <item>
+                <a href="{% url "accounts:sign_up" %}">Sign up</a>
+            </item>
+            <item>
+                <a href="{% url "accounts:login" %}">Login</a>
+            </item>
+        </section>
 
     {% endif %}
 

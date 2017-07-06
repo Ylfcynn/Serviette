@@ -6,11 +6,11 @@ class CreateRoBitForm(ModelForm):
 
     class Meta:
         model = RoBit
-        fields = ('name', 'description', 'solidity_code',)
+        fields = ('robit_name', 'description', 'solidity_code',)
 
 
 class EditRoBitForm(ModelForm):
 
     class Meta:
         model = RoBit
-        fields = ('name', 'description', 'solidity_code',)
+        fields = ('robit_name', 'description', 'solidity_code',)

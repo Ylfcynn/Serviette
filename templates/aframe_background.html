@@ -5,9 +5,9 @@
 <a-scene vr-mode-ui="enabled: false">
 
     <a-assets>
-        <a-asset-item id="ethereum_gem_top" src="{% static "vr/ethereum_gem_top.dae" %}"></a-asset-item>
-        <a-asset-item id="ethereum_gem_bottom" src="{% static "vr/ethereum_gem_bottom.dae" %}"></a-asset-item>
-        <a-asset-item id="simplex" src="{% static "vr/simplex_v2.gltf" %}"></a-asset-item>
+        <a-asset-item id="ethereum_gem_top" src="{% static "vr/ethereum_gem_top_white.gltf" %}"></a-asset-item>
+        <a-asset-item id="ethereum_gem_bottom" src="{% static "vr/ethereum_gem_bottom_white.gltf" %}"></a-asset-item>
+        <a-asset-item id="simplex" src="{% static "vr/simplex_white.dae" %}"></a-asset-item>
 
     </a-assets>
 
@@ -32,53 +32,60 @@
     </a-camera>
 
 
-    <a-entity collada-model="#ethereum_gem_top"
+    <a-entity gltf-model="#ethereum_gem_top"
               scale="1 1 1"
-              position="0 0.25 -2"
+              position="0 0.25 0"
               rotation="0 0 0"
-              material="color:black;opacity:0.5;wireframe:false;flatShading:false"
-              metalness="0.75"
-              opacity="0.5"
-              reflectivity="0.5"
+{#              material="color: black"#}
+{#              transparent="true"#}
+{#              opacity="0.5"#}
+{#              metalness="0.75"#}
+{#              reflectivity="0.5"#}
               visible="true">
 
         <a-animation attribute="rotation"
                      to="0 -360 0"
-                     dur="6000"
+                     dur="10000"
                      begin="0"
                      easing="linear"
                      repeat="indefinite">
-
         </a-animation>
 
     </a-entity>
-    <a-entity collada-model="#ethereum_gem_bottom"
+    <a-entity gltf-model="#ethereum_gem_bottom"
               scale="1 1 1"
-              position="0 -0.25 -2"
+              position="0 -0.25 0"
               rotation="0 0 0"
-              material="color:black;opacity:0.5;wireframe:false;flatShading:false"
-              metalness="0.75"
-              opacity="0.5"
-              reflectivity="0.5"
+{#              material="color:black"#}
+{#              metalness="0.75"#}
+{#              opacity="0.5"#}
+{#              reflectivity="0.5"#}
               visible="true">
 
         <a-animation attribute="rotation"
                      to="0 360 0"
-                     dur="6000"
+                     dur="10000"
                      begin="0"
                      easing="linear"
                      repeat="indefinite">
-
         </a-animation>
     </a-entity>
 
 
-    <a-entity gltf-model="#simplex"
-              scale="0.3 0.3 0.3"
-              position="-10 1.25 -2"
-              rotation="45 90 120"
-              material="color:black"
+    <a-entity collada-model="#simplex"
+              scale="0.4 0.4 0.4"
+              position="-5 0 0"
+              rotation="0 0 0"
               visible="true">
+
+
+        <a-animation attribute="rotation"
+                     to="0 360 360"
+                     dur="10000"
+                     begin="0"
+                     easing="linear"
+                     repeat="indefinite">
+        </a-animation>
     </a-entity>
 
 </a-scene>

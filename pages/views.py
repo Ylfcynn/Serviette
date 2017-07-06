@@ -43,6 +43,26 @@ def help(request):
     return render(request, 'help.html')
 
 
+def sitemap(request):
+    """
+
+    :param request:
+    :return:
+    """
+
+    return render(request, 'sitemap.html')
+
+
+def terms(request):
+    """
+
+    :param request:
+    :return:
+    """
+
+    return render(request, 'terms.html')
+
+
 def index(request):
     """
 

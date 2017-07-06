@@ -23,7 +23,7 @@ from django.contrib import admin
 from rest_framework import routers
 
 from accounts.api import UserViewSet
-from pages.views import about, contact, help, handler404, handler500
+from pages.views import about, contact, help, sitemap, terms, handler404, handler500
 # TODO: Make this part work
 from pages.views import index
 from workspace.api import RoBitViewSet
@@ -52,8 +52,8 @@ urlpatterns = [
     url(r'^about/', about, name='about'),
     url(r'^contact/', contact, name='contact'),
     url(r'^help/', help, name='help'),
-    url(r'^sitemap/', help, name='sitemap'),
-    url(r'^terms/', help, name='terms'),
+    url(r'^sitemap/', sitemap, name='sitemap'),
+    url(r'^terms/', terms, name='terms'),
     url(r'^404/', handler404, name='handler404'),
     url(r'^500/', handler500, name='handler500'),
 

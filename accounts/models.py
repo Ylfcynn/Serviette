@@ -19,13 +19,13 @@ class User(AbstractUser):
     REQUIRED_FIELDS = ['email']
 
 
-    # def __str__(self):
-    #     """
-    #
-    #     :return:
-    #     """
-    #
-    #     return self.name
+    def __str__(self):
+        """
+
+        :return:
+        """
+
+        return self.name
 
 
 

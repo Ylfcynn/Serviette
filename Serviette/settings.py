@@ -62,7 +62,8 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [os.path.join(BASE_DIR, 'templates'),
-                 os.path.join(BASE_DIR, 'accounts', 'templates')],
+                 os.path.join(BASE_DIR, 'accounts', 'templates'),
+                 os.path.join(BASE_DIR, 'workspace', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -140,7 +141,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
     os.path.join(BASE_DIR, "accounts", "static"),
     os.path.join(BASE_DIR, "pages", "static"),
-
+    os.path.join(BASE_DIR, "workspace", "static"),
 ]
 
 LOGIN_REDIRECT_URL = '/accounts/profile/'
