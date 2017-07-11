@@ -111,15 +111,16 @@ ul {
 #logged_out {
     margin-left: 6px;
     margin-right: 6px;
+
+}
+
+#logged_out a {
+    /*border-left: 2px solid white;*/
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     color: rgba(255, 255, 255, 1);
     text-decoration: none;
     transition: opacity .1s ease-in-out;
-}
-
-#logged_out item~item {
-    border-left: 2px solid white;
 }
 
 main {
@@ -144,17 +145,23 @@ h1 {
     background-color: transparent;
 }
 
-.form {
+#create_form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    box-sizing: border-box; /* Squishes padding inward instead of outward */
+    position: absolute;
     width: 50%;
     z-index: 500;
-    background-color: rgba(0, 0, 0, 0.125);
+    background: rgba(0, 0, 0, 0.125);
     font-family: 'Roboto', sans-serif;
     font-size: 12px;
     color: white;
+}
+
+#template_menu {
+
 }
 
 .a-enter-vr-button {

@@ -8,12 +8,18 @@
 
 {# Top #}
 {% block headline %}
-  <h1>Edit</h1>
+  <h1>Edit a RoBit</h1>
 {% endblock %}
 
 {# Middle #}
 {% block main %}
-  <blockquote></blockquote>
+    {{ form.errors }}
+    <form class="form" action="" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button>Submit Changes</button>
+    </form>
+
 {% endblock %}
 
 {# Bottom #}

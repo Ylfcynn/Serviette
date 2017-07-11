@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import CreateRoBitForm
+from .models import RoBit
 
 # Create your views here.
 
@@ -10,10 +11,21 @@ def create(request):
     :return:
     """
 
-    form = CreateRoBitForm()
+    if request.method == 'GET':
+
+        form = CreateRoBitForm()
+
+    elif request.method == 'POST':
+
+        form = CreateRoBitForm(data=request.POST)
+
+        if form.is_valid():
+            robit = form.save(commit=False)
+            # modify robit at the last minute!
+            robit.save()
+            return redirect('/')
 
     context = {'form': form}
-
     return render(request, 'create.html', context)
 
 
@@ -25,20 +37,38 @@ def delete(request):
     return render(request, 'delete.html')
 
 
-def edit(request):
+def edit(request, pk):
     """
 
     :return:
     """
-    return render(request, 'edit.html')
+
+    robit = RoBit.objects.get(id=pk)
+
+    if request.method == 'GET':
+
+        form = CreateRoBitForm(instance=robit)
+
+    elif request.method == 'POST':
+
+        form = CreateRoBitForm(data=request.POST, instance=robit)
+
+        if form.is_valid():
+            robit = form.save(commit=False)
+            # modify robit at the last minute!
+            robit.save()
+            return redirect('/')
+
+    context = {'form': form}
+    return render(request, 'edit.html', context)
 
 
-def history(request):
+def my_robits(request):
     """
 
     :return:
     """
-    return render(request, 'history.html')
+    return render(request, 'my_robits.html')
 
 
 def launch(request):

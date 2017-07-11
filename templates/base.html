@@ -16,23 +16,28 @@
       <!-- A-Frame vendor -->
       <script type="text/javascript" src="{% static "vendor/aframe/aframe.min.js" %}"></script>
 
+      <!-- Custom A-Frame -->
+      <script type="text/javascript" src="{% static "js/custom_aframe.js" %}"></script>
+
+      <!-- A-Frame components -->
+{#      <script src="{% static "vendor/aframe-mouse-cursor-component/aframe-mouse-cursor-component.min.js" %}"></script>#}
+
       {% block extra_head %}
       {%  endblock %}
   </head>
 
-
   <body>
 
-  {% if messages %}
-      <ul class="messages">
-          {% for message in messages %}
-              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-                  {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}
-                  {{ message }}
-              </li>
-          {% endfor %}
-      </ul>
-  {% endif %}
+{#  {% if messages %}#}
+{#      <ul class="messages">#}
+{#          {% for message in messages %}#}
+{#              <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>#}
+{#                  {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %}#}
+{#                  {{ message }}#}
+{#              </li>#}
+{#          {% endfor %}#}
+{#      </ul>#}
+{#  {% endif %}#}
 
     <main id="container">
         {# Boilerplate Django template tags#}

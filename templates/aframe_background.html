@@ -2,7 +2,7 @@
 
 {% load static %}
 
-<a-scene vr-mode-ui="enabled: false">
+<a-scene antialias="true" vr-mode-ui="enabled: false">
 
     <a-assets>
         <a-asset-item id="ethereum_gem_top" src="{% static "vr/ethereum_gem_top_white.gltf" %}"></a-asset-item>
@@ -26,21 +26,21 @@
               scale="1 1 1"
               visible="true"
               camera="userHeight:1.6;active:true"
-              look-controls=""
-              wasd-controls="">
+              look-controls
+              wasd-controls
+              mouse-cursor>
+        <a-entity cursor="fuse: true; fuseTimeout: 500"
+                  position="0 0 -1"
+                  geometry="primitive: ring; radiusInner: 0.025; radiusOuter: 0.03"
+                  material="color: black; shader: flat">
+        </a-entity>
 
     </a-camera>
-
 
     <a-entity gltf-model="#ethereum_gem_top"
               scale="1 1 1"
               position="0 0.25 0"
               rotation="0 0 0"
-{#              material="color: black"#}
-{#              transparent="true"#}
-{#              opacity="0.5"#}
-{#              metalness="0.75"#}
-{#              reflectivity="0.5"#}
               visible="true">
 
         <a-animation attribute="rotation"
@@ -50,16 +50,12 @@
                      easing="linear"
                      repeat="indefinite">
         </a-animation>
-
     </a-entity>
+
     <a-entity gltf-model="#ethereum_gem_bottom"
               scale="1 1 1"
               position="0 -0.25 0"
               rotation="0 0 0"
-{#              material="color:black"#}
-{#              metalness="0.75"#}
-{#              opacity="0.5"#}
-{#              reflectivity="0.5"#}
               visible="true">
 
         <a-animation attribute="rotation"
@@ -71,21 +67,44 @@
         </a-animation>
     </a-entity>
 
+    <a-entity id="RoBit">
+        <a-entity id="orbit" position="-5 0 0">
+            <a-entity>
+                <a-text id="RoBit_name"
+                        value="Roby the RoBit"
+                        position="-1.5 1 0"
+                        height="20px"
+                        width="10px">
+                </a-text>
+                <a-animation attribute="rotation"
+                             to="0 -360 0"
+                             dur="10000"
+                             begin="0"
+                             easing="linear"
+                             repeat="indefinite">
+                </a-animation>
+            </a-entity>
+            <a-entity collada-model="#simplex"
+                      scale="0.4 0.4 0.4"
+                      visible="true"
+                      log="RoBit in da house!!!"
+                      change-scale-on-hover>
 
-    <a-entity collada-model="#simplex"
-              scale="0.4 0.4 0.4"
-              position="-5 0 0"
-              rotation="0 0 0"
-              visible="true">
-
-
+                <a-animation attribute="rotation"
+                             to="0 360 360"
+                             dur="10000"
+                             begin="0"
+                             easing="linear"
+                             repeat="indefinite">
+                </a-animation>
+            </a-entity>
+        </a-entity>
         <a-animation attribute="rotation"
-                     to="0 360 360"
-                     dur="10000"
-                     begin="0"
-                     easing="linear"
-                     repeat="indefinite">
+                 to="0 360 0"
+                 dur="10000"
+                 begin="0"
+                 easing="linear"
+                 repeat="indefinite">
         </a-animation>
     </a-entity>
-
 </a-scene>

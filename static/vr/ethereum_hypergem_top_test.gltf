@@ -1,0 +1,267 @@
+{
+    "accessors": {
+        "accessor_buffer_Cube_Cube.001_0": {
+            "bufferView": "bufferView_buffer_Cube_Cube.001_0",
+            "byteOffset": 0,
+            "byteStride": 24,
+            "componentType": 5126,
+            "count": 16,
+            "max": [
+                1.414214015007019,
+                1.414214015007019,
+                2.0999999046325684
+            ],
+            "min": [
+                -1.414214015007019,
+                -1.414214015007019,
+                -1.6292099758175027e-07
+            ],
+            "type": "VEC3"
+        },
+        "accessor_buffer_Cube_Cube.001_1": {
+            "bufferView": "bufferView_buffer_Cube_Cube.001_0",
+            "byteOffset": 12,
+            "byteStride": 24,
+            "componentType": 5126,
+            "count": 16,
+            "max": [
+                0.6384187936782837,
+                0.6384187340736389,
+                0.4299337863922119
+            ],
+            "min": [
+                -0.6384187340736389,
+                -0.6384187936782837,
+                -1.0
+            ],
+            "type": "VEC3"
+        },
+        "accessor_buffer_Cube_Cube.001_2": {
+            "bufferView": "bufferView_buffer_Cube_Cube.001_1",
+            "byteOffset": 0,
+            "byteStride": 2,
+            "componentType": 5123,
+            "count": 18,
+            "max": [
+                15
+            ],
+            "min": [
+                0
+            ],
+            "type": "SCALAR"
+        }
+    },
+    "asset": {
+        "profile": {
+            "api": "WebGL",
+            "version": "1.0.3"
+        },
+        "version": "1.0"
+    },
+    "bufferViews": {
+        "bufferView_buffer_Cube_Cube.001_0": {
+            "buffer": "buffer_combined",
+            "byteLength": 384,
+            "byteOffset": 0,
+            "target": 34962
+        },
+        "bufferView_buffer_Cube_Cube.001_1": {
+            "buffer": "buffer_combined",
+            "byteLength": 36,
+            "byteOffset": 384,
+            "target": 34963
+        }
+    },
+    "buffers": {
+        "buffer_combined": {
+            "byteLength": 420,
+            "type": "arraybuffer",
+            "uri": "buffer_combined.bin"
+        }
+    },
+    "cameras": {
+        "camera_Camera": {
+            "name": "Camera",
+            "perspective": {
+                "aspectRatio": 1.703595982340029,
+                "yfov": 0.5033799409866333,
+                "zfar": 100.0,
+                "znear": 0.10000000149011612
+            },
+            "type": "perspective"
+        }
+    },
+    "extensions": {
+        "KHR_materials_common": {
+            "lights": {
+                "light_Lamp": {
+                    "name": "Lamp",
+                    "point": {
+                        "color": [
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "constantAttenuation": 1,
+                        "linearAttenuation": 0,
+                        "quadraticAttenuation": 0.03333335240683057
+                    },
+                    "type": "point"
+                }
+            }
+        }
+    },
+    "extensionsUsed": [
+        "KHR_materials_common"
+    ],
+    "materials": {
+        "material_None_001": {
+            "extensions": {
+                "KHR_materials_common": {
+                    "technique": "PHONG",
+                    "values": {
+                        "ambient": [
+                            1.0,
+                            1.0,
+                            1.0,
+                            1.0
+                        ],
+                        "diffuse": [
+                            0.6399999856948853,
+                            0.6399999856948853,
+                            0.6399999856948853,
+                            1.0
+                        ],
+                        "doubleSided": false,
+                        "emission": [
+                            0.0,
+                            0.0,
+                            0.0,
+                            1.0
+                        ],
+                        "shininess": 50,
+                        "specular": [
+                            0.0625,
+                            0.0625,
+                            0.0625,
+                            1.0
+                        ],
+                        "transparency": 1.0,
+                        "transparent": false
+                    }
+                }
+            },
+            "name": "None_001"
+        }
+    },
+    "meshes": {
+        "mesh_Cube_Cube.001": {
+            "name": "Cube_Cube.001",
+            "primitives": [
+                {
+                    "attributes": {
+                        "NORMAL": "accessor_buffer_Cube_Cube.001_1",
+                        "POSITION": "accessor_buffer_Cube_Cube.001_0"
+                    },
+                    "indices": "accessor_buffer_Cube_Cube.001_2",
+                    "material": "material_None_001",
+                    "mode": 4
+                }
+            ]
+        }
+    },
+    "nodes": {
+        "node_Camera": {
+            "camera": "camera_Camera",
+            "children": [],
+            "name": "Camera",
+            "rotation": [
+                0.483536034822464,
+                0.20870360732078552,
+                0.33687159419059753,
+                0.7804827094078064
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "translation": [
+                7.481131553649902,
+                -6.5076398849487305,
+                5.34366512298584
+            ]
+        },
+        "node_Cube_Cube_003": {
+            "children": [],
+            "meshes": [
+                "mesh_Cube_Cube.001"
+            ],
+            "name": "Cube_Cube_003",
+            "rotation": [
+                0.0,
+                0.0,
+                0.0,
+                1.0
+            ],
+            "scale": [
+                1.0,
+                1.0,
+                1.0
+            ],
+            "translation": [
+                0.0,
+                0.0,
+                0.0
+            ]
+        },
+        "node_Lamp": {
+            "children": [],
+            "extensions": {
+                "KHR_materials_common": {
+                    "light": "light_Lamp"
+                }
+            },
+            "name": "Lamp",
+            "rotation": [
+                0.16907575726509094,
+                0.27217137813568115,
+                0.7558802962303162,
+                0.570947527885437
+            ],
+            "scale": [
+                1.0,
+                0.9999999403953552,
+                1.0
+            ],
+            "translation": [
+                4.076245307922363,
+                1.0054539442062378,
+                5.903861999511719
+            ]
+        }
+    },
+    "samplers": {
+        "sampler_default": {}
+    },
+    "scene": "scene_Scene",
+    "scenes": {
+        "scene_Scene": {
+            "extras": {
+                "active_camera": "camera_Camera",
+                "background_color": [
+                    0.05087608844041824,
+                    0.05087608844041824,
+                    0.05087608844041824
+                ],
+                "frames_per_second": 24
+            },
+            "name": "Scene",
+            "nodes": [
+                "node_Cube_Cube_003",
+                "node_Lamp",
+                "node_Camera"
+            ]
+        }
+    }
+}

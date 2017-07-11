@@ -1,5 +1,5 @@
 from django.conf.urls import url
-from .views import create, edit, delete, launch, history
+from .views import create, edit, delete, launch, my_robits
 
 
 urlpatterns = [
@@ -7,9 +7,9 @@ urlpatterns = [
 
     # Workspace
     url(r'^create/', create, name='create'),
-    url(r'^edit/', edit, name='edit'),
+    url(r'^edit/(?P<pk>\d+)', edit, name='edit'),
     url(r'^delete/', delete, name='delete'),
     url(r'^launch/', launch, name='launch'),
-    url(r'^history/', history, name='history'),
+    url(r'^my_robits/', my_robits, name='my_robits'),
 
 ]

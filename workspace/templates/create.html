@@ -13,12 +13,21 @@
 
 {# Middle #}
 {% block main %}
-
-    <form class="form" action="" method="POST">
+    {{ form.errors }}
+    <form id="create_form" action="" method="POST">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button>Create</button>
+        RoBit Name:<br>
+        {{ form.robit_name }}<br>
+        Description:<br>
+        {{ form.description }}<br>
+        Solidity code:<br>
+        {{ form.solidity_code }}<br>
+        <button>Create RoBit</button>
     </form>
+
+    <section id="template_menu">
+
+    </section>
 
 {% endblock %}
 

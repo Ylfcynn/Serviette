@@ -16,6 +16,19 @@
     <!-- A-Frame vendor -->
     <script type="text/javascript" src="{% static "vendor/aframe/aframe.min.js" %}"></script>
 
+    <!-- Custom A-Frame -->
+    <script type="text/javascript" src="{% static "js/custom_aframe.js" %}"></script>
+
+    <!-- A-Frame components -->
+    <script src="{% static "vendor/aframe-mouse-cursor-component/aframe-mouse-cursor-component.min.js" %}"></script>
+
+    <!-- Ben Pyrik's aframe-terrain-model-component // TODO  -->
+    <script src="https://unpkg.com/aframe-terrain-model-component@0.2.3/dist/aframe-terrain-model-component.min.js"></script>
+{#    <script type="text/javascript" src="{% static "vendor/aframe/aframe-terrain-model-component.min.js" %}"></script>#}
+
+    <script src="https://cdn.rawgit.com/tizzle/aframe-orbit-controls-component/v0.1.6/dist/aframe-orbit-controls-component.min.js"></script>
+
+
     {% block extra_head %}
     {% endblock %}
 </head>
@@ -32,7 +45,7 @@
     They're <i>RoBits</i>
 </h1>
 
-<a-scene vr-mode-ui="enabled: true">
+<a-scene antialias="true" vr-mode-ui="enabled: true" debug>
 
     <a-assets>
         <a-asset-item id="ethereum_gem_top" src="{% static "vr/ethereum_gem_top_white.gltf" %}"></a-asset-item>
@@ -51,26 +64,24 @@
 
     </a-sky>
 
-    <a-camera position="0 4 10"
-              rotation="-30 0 0"
-              scale="1 1 1"
-              visible="true"
-              camera="userHeight:1.6;active:true"
-              look-controls=""
-              wasd-controls="">
-
-    </a-camera>
+    <a-entity position="0 4 10"
+              rotation="-30 0 0">
+        <a-entity camera="userHeight:1.6;active:true"
+                  look-controls
+                  mouse-cursor>
+            <a-cursor fuse="true"
+                      position="0 0 -1"
+                      geometry="primitive: ring; radiusInner: 0.025; radiusOuter: 0.03"
+                      material="color: black; shader: flat">
+            </a-cursor>
+        </a-entity>
+    </a-entity>
 
 
     <a-entity gltf-model="#ethereum_gem_top"
               scale="1 1 1"
               position="0 0.25 0"
               rotation="0 0 0"
-{#              material="color: black"#}
-{#              transparent="true"#}
-{#              opacity="0.5"#}
-{#              metalness="0.75"#}
-{#              reflectivity="0.5"#}
               visible="true">
 
         <a-animation attribute="rotation"
@@ -80,16 +91,12 @@
                      easing="linear"
                      repeat="indefinite">
         </a-animation>
-
     </a-entity>
+
     <a-entity gltf-model="#ethereum_gem_bottom"
               scale="1 1 1"
               position="0 -0.25 0"
               rotation="0 0 0"
-{#              material="color:black"#}
-{#              metalness="0.75"#}
-{#              opacity="0.5"#}
-{#              reflectivity="0.5"#}
               visible="true">
 
         <a-animation attribute="rotation"
@@ -101,21 +108,54 @@
         </a-animation>
     </a-entity>
 
+    {# for robit in robits #}
+    <a-entity id="RoBit">
+        <a-entity class="orbit" position="-5 0 0">
+            <a-entity collada-model="#simplex"
+                      scale="0.4 0.4 0.4"
+                      visible="true"
+                      log="RoBit in da house!!!"
+                      change-scale-on-hover>
 
-    <a-entity collada-model="#simplex"
-              scale="0.4 0.4 0.4"
-              position="-5 0 0"
-              rotation="0 0 0"
-              visible="true">
-
-
-        <a-animation attribute="rotation"
-                     to="0 360 360"
+                <a-animation attribute="rotation"
+                             to="0 360 360"
+                             dur="10000"
+                             begin="0"
+                             easing="linear"
+                             repeat="indefinite">
+                </a-animation>
+            </a-entity>
+        </a-entity>
+        <a-animation class="revolution"
+                     attribute="rotation"
+                     to="0 360 0"
                      dur="10000"
                      begin="0"
                      easing="linear"
                      repeat="indefinite">
         </a-animation>
+    </a-entity>
+    {# endfor #}
+
+    <!-- Terrain-->
+    <a-entity id="terrain"
+              position="0 -4 0"
+              color-terrain-model="wireframe: true">
+        <a-animation attribute="rotation"
+                  to="0 360 0"
+                  dur="50000"
+                  easing="linear"
+                  repeat="indefinite">
+
+        </a-animation>
+{#             <a-animation attribute="color-terrain-model.zPosition"#}
+{#                  dur="5000"#}
+{#                  fill="forwards"#}
+{#                  from="0 -4 0"#}
+{#                  to="10 -4 0"#}
+{#                  direction="alternate"#}
+{#                  repeat="indefinite">#}
+{#             </a-animation>#}
     </a-entity>
 
 </a-scene>
@@ -140,7 +180,7 @@
 <script type="text/javascript" src="{% static "vendor/jquery-ui/jquery-ui.min.js" %}"></script>
 
 <!-- D3 vendor -->
-<script type="text/javascript" src="{% static "vendor/d3/d3.min.js" %}"></script>
+{#<script type="text/javascript" src="{% static "vendor/d3/d3.min.js" %}"></script>#}
 
 <!-- Site-wide JS -->
 <script src="{% static "js/sitewide.js" %}" type="text/javascript"></script>
