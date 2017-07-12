@@ -21,21 +21,33 @@
 
     </a-sky>
 
-    <a-camera position="0 4 10"
-              rotation="-30 0 0"
-              scale="1 1 1"
-              visible="true"
-              camera="userHeight:1.6;active:true"
-              look-controls
-              wasd-controls
-              mouse-cursor>
-        <a-entity cursor="fuse: true; fuseTimeout: 500"
-                  position="0 0 -1"
-                  geometry="primitive: ring; radiusInner: 0.025; radiusOuter: 0.03"
-                  material="color: black; shader: flat">
+    <a-entity position="0 4 10"
+              rotation="-30 0 0">
+        <a-entity camera="userHeight:1.6;active:true"
+                  look-controls="true"
+                  wasd-controls="true"
+                  mouse-cursor>
+            <a-cursor fuse="true"
+                      position="0 0 -1"
+                      geometry="primitive: ring; radiusInner: 0.025; radiusOuter: 0.03"
+                      material="color: black; shader: flat">
+                <a-animation begin="click"
+                             easing="ease-in"
+                             attribute="scale"
+                             fill="backwards"
+                             from="0.1 0.1 0.1"
+                             to="1 1 1">
+                </a-animation>
+                <a-animation begin="cursor-fusing"
+                             easing="ease-in"
+                             attribute="scale"
+                             fill="backwards"
+                             from="1 1 1"
+                             to="0.1 0.1 0.1">
+                </a-animation>
+            </a-cursor>
         </a-entity>
-
-    </a-camera>
+    </a-entity>
 
     <a-entity gltf-model="#ethereum_gem_top"
               scale="1 1 1"
@@ -67,11 +79,14 @@
         </a-animation>
     </a-entity>
 
+
+    {% for my_robit in my_robits %}
     <a-entity id="RoBit">
+{#        <a-entity id="orbit" position="-5 0 {{ forloop.counter }}">#}
         <a-entity id="orbit" position="-5 0 0">
             <a-entity>
                 <a-text id="RoBit_name"
-                        value="Roby the RoBit"
+                        value="{{ my_robit.name }}"
                         position="-1.5 1 0"
                         height="20px"
                         width="10px">
@@ -87,7 +102,7 @@
             <a-entity collada-model="#simplex"
                       scale="0.4 0.4 0.4"
                       visible="true"
-                      log="RoBit in da house!!!"
+                      log="{{ my_robit.name }} in da house!!!"
                       change-scale-on-hover>
 
                 <a-animation attribute="rotation"
@@ -107,4 +122,7 @@
                  repeat="indefinite">
         </a-animation>
     </a-entity>
+    {% endfor %}
+
+
 </a-scene>

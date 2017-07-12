@@ -1,20 +1,6 @@
 // Doby & Kieran
 
 
-// Component to change to random color on click.
-AFRAME.registerComponent('cursor-listener', {
-    init: function () {
-
-
-        this.el.addEventListener('mouseenter', function (evt) {
-            this.setAttribute('material', 'color', 'black');
-
-            console.log('I was clicked at: ', evt.detail.intersection.point);
-        });
-
-    }
-});
-
 AFRAME.registerComponent('log', {
     schema: {type: 'string'},
     init: function () {
@@ -35,11 +21,13 @@ AFRAME.registerComponent('change-scale-on-hover', {
 
         el.addEventListener('mouseenter', function () {
             el.setAttribute('scale', '0.8 0.8 0.8');
+            el.setAttribute('easing', 'ease-in');
             // Pause orbit (DOM traversal technique)
             // jQuery(this).parents('a-entity[id=orbit]').siblings('a-animation[class=revolution]');
         });
         el.addEventListener('mouseleave', function () {
             el.setAttribute('scale', defaultScale );
+            el.setAttribute('easing', 'ease-in')
             // Resume orbit
         });
         el.addEventListener('click', function () {

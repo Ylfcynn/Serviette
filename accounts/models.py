@@ -14,7 +14,14 @@ class User(AbstractUser):
 
     """
 
+    ORBIT_TYPES = (
+        ('Atomic', 'Electron shell schema'),    # K: 2, L: 8, M: 18, N: 32, O: 50, P: 72
+        # ('Planetary', 'Solar system schema'),   # One RoBit per orbit radius
+        # ('Dyson', 'Dyson sphere schema'),       # Tiling arrangement in the form of a shell
+    )
+
     email = models.EmailField()
+    orbit_schema = models.CharField(max_length=128, choices=ORBIT_TYPES)
 
     REQUIRED_FIELDS = ['email']
 

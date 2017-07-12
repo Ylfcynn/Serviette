@@ -24,7 +24,7 @@ class CustomUserCreationForm(UserCreationForm):
         last_name = forms.CharField(max_length=256)
 
         model = User
-        fields = UserCreationForm.Meta.fields + ('username', 'email', 'first_name', 'last_name',)
+        fields = UserCreationForm.Meta.fields + ('username', 'email', 'first_name', 'last_name', 'orbit_schema', )
 
     # class Meta(UserChangeForm.Meta):
     #     model = User
@@ -35,4 +35,9 @@ class CustomUserUpdateForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ('username', 'email', 'first_name', 'last_name',)
+        fields = ('username', 'email', 'first_name', 'last_name', 'orbit_schema', )
+        widgets = {
+                   'username': forms.TextInput(attrs={'class': 'profile'}),
+
+                  }
+

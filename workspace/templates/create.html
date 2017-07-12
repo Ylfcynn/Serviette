@@ -17,7 +17,9 @@
     <form id="create_form" action="" method="POST">
         {% csrf_token %}
         RoBit Name:<br>
-        {{ form.robit_name }}<br>
+        {{ form.name }}<br>
+        RoBit Type:<br>
+        {{ form.type }}<br>
         Description:<br>
         {{ form.description }}<br>
         Solidity code:<br>

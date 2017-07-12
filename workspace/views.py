@@ -22,19 +22,12 @@ def create(request):
         if form.is_valid():
             robit = form.save(commit=False)
             # modify robit at the last minute!
+            robit.author = request.user
             robit.save()
-            return redirect('/')
+            return redirect('workspace:my_robits')    # Redirects require dot notation if using view names
 
     context = {'form': form}
     return render(request, 'create.html', context)
-
-
-def delete(request):
-    """
-
-    :return:
-    """
-    return render(request, 'delete.html')
 
 
 def edit(request, pk):
@@ -57,10 +50,18 @@ def edit(request, pk):
             robit = form.save(commit=False)
             # modify robit at the last minute!
             robit.save()
-            return redirect('/')
+            return redirect('workspace:my_robits')
 
     context = {'form': form}
     return render(request, 'edit.html', context)
+
+
+def delete(request):
+    """
+
+    :return:
+    """
+    return render(request, 'delete.html')
 
 
 def my_robits(request):
@@ -68,7 +69,12 @@ def my_robits(request):
 
     :return:
     """
-    return render(request, 'my_robits.html')
+
+    my_robits = RoBit.objects.filter(author=request.user)
+
+    context = {'my_robits': my_robits}
+
+    return render(request, 'my_robits.html', context)
 
 
 def launch(request):

@@ -4,17 +4,65 @@
 {% load static %}
 
 {% block extra_head %}
-<link href="{% static "css/sitewide.css" %}" rel="stylesheet" type="text/css">
+    <link href="{% static "css/sitewide.css" %}" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {# Top #}
 {% block headline %}
-  <h1>My Profile</h1>
+    <h1>My Profile</h1>
 {% endblock %}
 
 {# Middle #}
 {% block main %}
-  <blockquote></blockquote>
+
+
+    {{ form.errors }}
+    <form id="personal_info" class="profile_form" action="" method="POST">
+        {% csrf_token %}
+
+        <label>
+            Username:
+        </label>
+        {{ form.username }}
+        <br>
+        <label>
+            E-mail:
+        </label>
+            {{ form.email }}
+        <br>
+        <label>
+            Forename:
+        </label>
+            {{ form.first_name }}
+        <br>
+        <label>
+            Surname:
+        </label>
+            {{ form.last_name }}
+        <br>
+        <label>
+            Orbit schema:
+        </label>
+            {{ form.orbit_schema }}
+        <br>
+
+
+            <button>Submit</button>
+    </form>
+
+
+    {{ password_form.errors }}
+    <form id="password_reset" class="profile_form" action="/accounts/password_reset" method="POST">
+        {% csrf_token %}
+
+        {{ password_form.old_password }}
+        {{ password_form.new_password1 }}
+        {{ password_form.new_password2 }}
+
+        <button>Reset</button>
+    </form>
+
+
 {% endblock %}
 
 {# Bottom #}

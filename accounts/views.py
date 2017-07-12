@@ -70,6 +70,7 @@ def sign_up(request):
         if form.is_valid():
             user = form.save(commit=False)
             # Make any last second change to the User here...
+
             user.save()
 
             subject = 'Welcome to Serviette.'
@@ -82,10 +83,11 @@ def sign_up(request):
 
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password')
-            user = authenticate(username=username, password=raw_password)
+
+            # user = authenticate(username=username, password=raw_password)
             django_login(request, user)
 
-            return redirect('accounts/my_account.html')
+            return redirect('accounts/profile')
 
     context = {'form': form}
     return render(request, 'accounts/sign_up.html', context)
@@ -98,8 +100,22 @@ def profile(request):
     :return:
     """
 
-    form = CustomUserUpdateForm(instance=request.user)
-    password_form = PasswordChangeForm(user=request.user)
+
+    if request.method == 'GET':
+        form = CustomUserUpdateForm(instance=request.user)
+        password_form = PasswordChangeForm(user=request.user)
+
+    elif request.method == 'POST':
+        form = CustomUserUpdateForm(instance=request.user, data=request.POST)
+        # password_form = PasswordChangeForm(user=request.user)
+
+        if form.is_valid():
+            user = form.save(commit=False)
+            # Any last second changes to th euser here...
+            user.save()
+            #TODO: JSON response
+
+
 
     context = {'form': form, 'password_form': password_form}
 
