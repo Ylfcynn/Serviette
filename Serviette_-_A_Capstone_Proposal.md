@@ -39,6 +39,10 @@ How do you need to _search_ for specific instances of nouns?
 
 ### Technical Components
 
+A-Frame 0.6.0
+highlight.js
+
+
 What are the "moving parts" of your MVP?
 What are the things like "modules" you're going to write?
 How do they talk to each other?

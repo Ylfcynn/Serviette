@@ -3,27 +3,29 @@ from django import forms
 
 
 solidity_example = """
+/* The Greeter is an intelligent digital entity that lives on the blockchain and is able 
+to have conversations with anyone who interacts with it, based on its input.*/
 contract mortal {
-    /* Define variable owner of the type address*/
+    // Define variable owner of the type address
     address owner;
 
-    /* this function is executed at initialization and sets the owner of the contract */
+    // This function is executed at initialization and sets the owner of the contract
     function mortal() { owner = msg.sender; }
 
-    /* Function to recover the funds on the contract */
+    // Function to recover the funds on the contract
     function kill() { if (msg.sender == owner) selfdestruct(owner); }
 }
 
 contract greeter is mortal {
-    /* define variable greeting of the type string */
+    // Defines variable greeting of the type string
     string greeting;
 
-    /* this runs when the contract is executed */
+    // This runs when the contract is executed
     function greeter(string _greeting) public {
         greeting = _greeting;
     }
 
-    /* main function */
+    // Main function
     function greet() constant returns (string) {
         return greeting;
     }

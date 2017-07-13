@@ -21,6 +21,7 @@
 
     <!-- A-Frame components -->
     <script src="{% static "vendor/aframe-mouse-cursor-component/aframe-mouse-cursor-component.min.js" %}"></script>
+    <script src="https://rawgit.com/ngokevin/aframe-event-set-component/master/dist/aframe-event-set-component.min.js"></script>
 
     <!-- Ben Pyrik's aframe-terrain-model-component // TODO  -->
     <script src="https://unpkg.com/aframe-terrain-model-component@0.2.3/dist/aframe-terrain-model-component.min.js"></script>
@@ -92,19 +93,20 @@
         </a-entity>
     </a-entity>
 
-
     <a-entity gltf-model="#ethereum_gem_top"
               scale="1 1 1"
               position="0 0.25 0"
               rotation="0 0 0"
-              visible="true">
+              visible="true"
+              cursor-listener
+              event-set__click="_event: click; _target: #etherscan;>
 
         <a-animation attribute="rotation"
                      to="0 -360 0"
-                     dur="10000"
-                     begin="0"
-                     easing="linear"
-                     repeat="indefinite">
+                     dur="1000"
+                     begin="click"
+                     easing="ease-in"
+                     repeat="0">
         </a-animation>
     </a-entity>
 
@@ -112,14 +114,15 @@
               scale="1 1 1"
               position="0 -0.25 0"
               rotation="0 0 0"
-              visible="true">
+              visible="true"
+              cursor-listener>
 
         <a-animation attribute="rotation"
                      to="0 360 0"
-                     dur="10000"
-                     begin="0"
-                     easing="linear"
-                     repeat="indefinite">
+                     dur="1000"
+                     begin="click"
+                     easing="ease-in"
+                     repeat="0">
         </a-animation>
     </a-entity>
 
@@ -130,6 +133,7 @@
                           scale="0.4 0.4 0.4"
                           visible="true"
                           log="RoBit in da house!!!"
+                          cursor-listener
                           change-scale-on-hover>
 
                     <a-animation attribute="rotation"

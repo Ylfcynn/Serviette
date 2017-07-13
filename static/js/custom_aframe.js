@@ -10,6 +10,34 @@ AFRAME.registerComponent('log', {
 });
 
 
+// // Component to generate text on click.
+// AFRAME.registerComponent('cursor-listener', {
+//   init: function () {
+//     this.el.addEventListener('click', function (evt) {
+//       console.log('I was clicked at: ', evt.detail.intersection.point);
+//     });
+//   }
+// });
+
+
+
+/*fetch() allows you to make network requests similar to XMLHttpRequest (XHR).
+The main difference is that the Fetch API uses Promises, which enables a simpler and cleaner API,
+avoiding callback hell and having to remember the complex API of XMLHttpRequest.*/
+
+// let myInit = { method: 'GET'};
+//
+// fetch("https://api.blockcypher.com/v1/eth/main", myInit).then(function(response) {
+//    console.log(`${response.status}: ${response.statusText}`);
+//    return response.json();
+// }).then(function(data) {
+//    console.log(data.high_gas_price);
+//
+// }).catch(function(error) {
+//   console.log('Houston, there has been a problem.: ' + error.message);
+// });
+
+
 AFRAME.registerComponent('change-scale-on-hover', {
     schema: {
         scale: {default: '.4 .4 .4'}
@@ -30,8 +58,8 @@ AFRAME.registerComponent('change-scale-on-hover', {
             el.setAttribute('easing', 'ease-in')
             // Resume orbit
         });
-        el.addEventListener('click', function () {
-            el.setAttribute('click',  );
-        });
+        // el.addEventListener('click', function () {
+        //     el.setAttribute('',  );
+        // });
     }
 });

@@ -81,16 +81,18 @@ def sign_up(request):
             send_mail(subject, message, from_email, recipient_list, fail_silently=False, auth_user=None,
                       auth_password=None, connection=None, html_message=None)
 
+            messages.add_message(request, messages.SUCCESS, message)
+
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password')
 
             # user = authenticate(username=username, password=raw_password)
             django_login(request, user)
 
-            return redirect('accounts/profile')
+            return redirect('/accounts/profile')
 
     context = {'form': form}
-    return render(request, 'accounts/sign_up.html', context)
+    return render(request, '/accounts/sign_up', context)
 
 
 @login_required(login_url='accounts/login.html')

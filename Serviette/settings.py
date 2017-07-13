@@ -147,7 +147,7 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL = '/accounts/profile/'
 
 #
-AUTH_USER_MODEL = 'accounts.User'
+AUTH_USER_MODEL = 'accounts.User'    # Setting this references the custom user model.
 
 # E-mail settings below. See here --> https://docs.djangoproject.com/en/1.11/topics/email/
 LOCAL_HOST = 'smtp.gmail.com'
