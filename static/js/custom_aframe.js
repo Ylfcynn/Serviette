@@ -3,6 +3,7 @@
 
 AFRAME.registerComponent('log', {
     schema: {type: 'string'},
+
     init: function () {
         let stringToLog = this.data;
         console.log(stringToLog);
@@ -36,6 +37,13 @@ avoiding callback hell and having to remember the complex API of XMLHttpRequest.
 // }).catch(function(error) {
 //   console.log('Houston, there has been a problem.: ' + error.message);
 // });
+
+let entity = document.createElement('a-entity');
+scene.appendChild(entity);
+entity.setAttribute('position', { x: 0, y: 1, z: 2 });
+entity.addEventListener('loaded', function() {
+  console.log(entity.getAttribute('position'));
+});
 
 
 AFRAME.registerComponent('change-scale-on-hover', {

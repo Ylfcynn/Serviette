@@ -81,9 +81,10 @@
 
 
     {% for my_robit in my_robits %}
-    <a-entity id="RoBit">
+    <a-entity class="robit" id='{{ my_robit.name }}' data-robit='{{ my_robit.id }}'>
 {#        <a-entity id="orbit" position="-5 0 {{ forloop.counter }}">#}
-        <a-entity id="orbit" position="-5 0 0">
+        {{ my_robit.orbit.x }}
+        <a-entity id="orbit" position="{{ my_robit.orbit.x }} {{ my_robit.orbit.y }} {{ my_robit.orbit.z }}">
             <a-entity>
                 <a-text id="RoBit_name"
                         value="{{ my_robit.name }}"
