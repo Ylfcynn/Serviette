@@ -42,8 +42,9 @@
 
 <h1>Stop calling them 'smart contracts'
     <br>
+    They're
     <br>
-    They're <i>RoBits</i>
+    <span id="dubbian"><i>RoBits</i></span>
 </h1>
 
 <a-scene antialias="true" vr-mode-ui="enabled: true" debug>
@@ -99,7 +100,7 @@
               rotation="0 0 0"
               visible="true"
               cursor-listener
-              event-set__click="_event: click; _target: #etherscan;>
+{#              event-set__click="_event: click; _target: #etherscan;>#}
 
         <a-animation attribute="rotation"
                      to="0 -360 0"
@@ -161,7 +162,7 @@
               position="0 -4 0"
               color-terrain-model="wireframe: true">
         <a-animation attribute="rotation"
-                  to="0 360 0"
+                  to="0 -360 0"
                   dur="50000"
                   easing="linear"
                   repeat="indefinite">

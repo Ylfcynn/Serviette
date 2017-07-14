@@ -92,7 +92,7 @@ def sign_up(request):
             return redirect('/accounts/profile')
 
     context = {'form': form}
-    return render(request, '/accounts/sign_up', context)
+    return render(request, 'accounts/sign_up.html', context)
 
 
 @login_required(login_url='accounts/login.html')

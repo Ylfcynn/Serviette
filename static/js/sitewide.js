@@ -4,9 +4,9 @@
 jQuery(document).ready(function () {
     "use strict";
 
-    jQuery('code').on('keyup', function(evt){
-        hljs.initHighlightingOnLoad();
-    });
+    // jQuery('code').on('keyup', function(evt){
+    //     hljs.initHighlightingOnLoad();
+    // });
 
 
 

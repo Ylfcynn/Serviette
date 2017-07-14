@@ -59,7 +59,7 @@ nav {
     justify-content: space-around;
     align-content: flex-start;
     height: 100%;
-    width: 10em;
+    width: 9em;
     margin: 0;
     padding: 0;
     box-sizing: border-box; /* Squishes padding inward instead of outward */
@@ -92,7 +92,7 @@ nav {
     justify-content: flex-end;
     /*align-content: flex-start;*/
     height: 100%;
-    width: 112px;
+    width: 9em;
     margin: 0;
     padding: 0;
     box-sizing: border-box; /* Squishes padding inward instead of outward */
@@ -165,17 +165,21 @@ main {
 h1 {
     z-index: 800;
     font-family: 'Roboto', sans-serif;
-    font-size: 26px;
+    font-size: 1.75em;
     height: 100%;
     color: white;
     margin: 0;
     position: absolute;
-    top: 100px;
+    top: 4.75em;
     left: 0px;
     width: 100%;
-    height: 30px;
+    height: 2em;
     text-align: center;
     background-color: transparent;
+}
+
+#dubbian {
+    font-size: 2em;
 }
 
 /*article {*/

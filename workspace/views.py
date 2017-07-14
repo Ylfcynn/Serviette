@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from .forms import CreateRoBitForm
-from .models import RoBit
+from .models import RoBit, Orbit
 
 # Create your views here.
 
@@ -24,6 +24,11 @@ def create(request):
             # modify robit at the last minute!
             robit.author = request.user
             robit.save()
+
+            orbit = Orbit()
+            orbit.robit = robit
+            orbit.save()
+
             return redirect('workspace:my_robits')    # Redirects require dot notation if using view names
 
     context = {'form': form}

@@ -1,6 +1,7 @@
 from django.db import models
 from accounts.models import User
 from datetime import datetime
+from .schemata import SCHEMATA
 
 # Create your models here.
 
@@ -49,6 +50,13 @@ class RoBit(models.Model):
         self.is_launched = True
         self.launched_on = datetime.now()
 
+    def save(self, *args, **kwargs):
+        """
+
+        :return:
+        """
+        super().save(*args, **kwargs)
+
 
 class Orbit(models.Model):
     """
@@ -71,3 +79,26 @@ class Orbit(models.Model):
         instance = Orbit(x=x, y=y, z=z)
 
         return instance
+
+    def scenographer(self):
+        """
+        This is potentially confusing.
+        count() returns an integer starting at 1 but access-by-index returns an integer starting at 0.
+        A delta of 1 results, which is equivalent to an increment of 1. So, no '+1'.
+        :return:
+        """
+        # import pdb; pdb.set_trace()
+        schema = SCHEMATA[self.robit.author.orbit_schema]
+
+        robbery_of_robits = self.robit.author.robits.all().count()
+        self.x, self.y, self.z = schema[robbery_of_robits]
+
+        return
+
+    def save(self, *args, **kwargs):
+        """
+
+        :return:
+        """
+        self.scenographer()
+        super().save(*args, **kwargs)

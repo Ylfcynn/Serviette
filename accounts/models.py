@@ -15,9 +15,9 @@ class User(AbstractUser):
     """
 
     ORBIT_TYPES = (
-        ('Atomic', 'Electron shell schema'),    # K: 2, L: 8, M: 18, N: 32, O: 50, P: 72
-        # ('Planetary', 'Solar system schema'),   # One RoBit per orbit radius
-        # ('Dyson', 'Dyson sphere schema'),       # Tiling arrangement in the form of a shell
+        ('atomic', 'Electron shell schema'),      # K: 2, L: 8, M: 18, N: 32, O: 50, P: 72
+        ('planetary', 'Solar system schema'),   # One RoBit per orbit radius
+        # ('dyson', 'Dyson sphere schema'),       # Tiling arrangement in the form of a shell
     )
 
     email = models.EmailField()
@@ -32,7 +32,7 @@ class User(AbstractUser):
         :return:
         """
 
-        return self.name
+        return self.username
 
 
 
